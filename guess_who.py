@@ -12,13 +12,27 @@ def intro():
     print(planes_print)
 
     #Player 1's choice
-    player1_choice = input("Player 1, please pick your plane: ")
+    false_input = True
+    while false_input:
+        player1_choice = input("Player 1, please pick your plane: ")
+        if not player1_choice.upper() in planes:
+            continue
+        false_input = False
 
-    return player1_choice
+    #Player 2's choice
+    false_input = True
+    while false_input:
+        player2_choice = input("Player 2, please pick your plane: ")
+        if not player2_choice.upper() in planes:
+            continue
+        false_input = False
+
+    # print(f"Success! {player1_choice} {player2_choice}") # Debugging Statement
+    return player1_choice, player2_choice
 
 if __name__ == "__main__":
     bar = "-" * 64
-    planes = ["B747-8", 
+    planes = ["B747", 
               "B777",
               "B787",
               "B767",
@@ -36,4 +50,4 @@ if __name__ == "__main__":
               "F14",
               "Concorde"]
 
-    player1_choice = intro()
+    player1_choice, player2_choice = intro()
