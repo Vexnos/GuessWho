@@ -16,6 +16,7 @@ def intro():
     while false_input:
         player1_choice = input("Player 1, please pick your plane: ")
         if not player1_choice.upper() in planes:
+            print("Plane not listed!")
             continue
         false_input = False
 
@@ -24,11 +25,34 @@ def intro():
     while false_input:
         player2_choice = input("Player 2, please pick your plane: ")
         if not player2_choice.upper() in planes:
+            print("Plane not listed!")
             continue
         false_input = False
 
     # print(f"Success! {player1_choice} {player2_choice}") # Debugging Statement
     return player1_choice, player2_choice
+
+def guess(player1_choice, player2_choice):
+    turn = 1
+
+    unguessed = True
+    while unguessed:
+        if turn == 1:
+            print("It's Player1's turn!")
+            player1_guess = input("Guess player2's plane: ")
+            if not player1_guess.upper() == player2_choice.upper():
+                print("Incorrect!")
+                turn = 2
+                continue
+            unguessed = False
+        elif turn == 2:
+            print("It's Player2's turn!")
+            player2_guess = input("Guess player1's plane: ")
+            if not player2_guess.upper() == player1_choice.upper():
+                print("Incorrect!")
+                turn = 1
+                continue
+            unguessed = False
 
 if __name__ == "__main__":
     bar = "-" * 64
@@ -48,6 +72,10 @@ if __name__ == "__main__":
               "F22",
               "F35",
               "F14",
-              "Concorde"]
+              "Concorde",
+              "A-10",
+              "DC-3",
+              "MD-80"]
 
     player1_choice, player2_choice = intro()
+    guess(player1_choice, player2_choice)
