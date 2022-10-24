@@ -6,28 +6,35 @@ Date: 2022-10-25
 Version: 1.0.0
 -------------------------------------------------
 '''
+#-------Libraries-------
+import sys, subprocess
+
+#-------Functions-------
 def intro():
+    subprocess.run('clear') # Clears the output to avoid clutter
     print(f"Welcome to Guess Who! Here are your choices!")
-    planes_print = ", ".join([str(plane) for plane in planes])
-    print(planes_print)
 
     #Player 1's choice
     false_input = True
     while false_input:
+        print(planes_print)
         player1_choice = input("Player 1, please pick your plane: ")
         if not player1_choice.upper() in planes:
             print("Plane not listed!")
             continue
         false_input = False
+        subprocess.run('clear') # Clears the output so the users' choice isn't spoiled
 
     #Player 2's choice
     false_input = True
     while false_input:
+        print(planes_print)
         player2_choice = input("Player 2, please pick your plane: ")
         if not player2_choice.upper() in planes:
             print("Plane not listed!")
             continue
         false_input = False
+        subprocess.run('clear') # Clears the output so the users' choice isn't spoiled
 
     # print(f"Success! {player1_choice} {player2_choice}") # Debugging Statement
     return player1_choice, player2_choice
@@ -37,6 +44,8 @@ def guess(player1_choice, player2_choice):
 
     unguessed = True
     while unguessed:
+
+        #Player 1's Turn
         if turn == 1:
             print("It's Player1's turn!")
             player1_guess = input("Guess player2's plane: ")
@@ -45,6 +54,10 @@ def guess(player1_choice, player2_choice):
                 turn = 2
                 continue
             unguessed = False
+            winner = "Player 1"
+            ending(winner)
+
+        #Player 2's Turn
         elif turn == 2:
             print("It's Player2's turn!")
             player2_guess = input("Guess player1's plane: ")
@@ -53,7 +66,13 @@ def guess(player1_choice, player2_choice):
                 turn = 1
                 continue
             unguessed = False
+            winner = "Player 2"
+            ending(winner)
 
+def ending(winner):
+    print(f"Congratulations! {winner} has won the game!")
+
+#-------Main Routine-------
 if __name__ == "__main__":
     bar = "-" * 64
     planes = ["B747", 
@@ -77,5 +96,12 @@ if __name__ == "__main__":
               "DC-3",
               "MD-80"]
 
-    player1_choice, player2_choice = intro()
-    guess(player1_choice, player2_choice)
+    planes_print = ", ".join([str(plane) for plane in planes])
+
+    playing = True
+    while playing:
+        player1_choice, player2_choice = intro()
+        guess(player1_choice, player2_choice)
+
+    play_again = input("Play again? (y/n): ")
+    playing = play_again.lower().startswith("y")
