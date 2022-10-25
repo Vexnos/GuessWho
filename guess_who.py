@@ -11,7 +11,7 @@ import sys, subprocess
 
 #-------Functions-------
 def intro():
-    subprocess.run('clear') # Clears the output to avoid clutter
+    clear() # Clears the output to avoid clutter
     print(f"Welcome to Guess Who! Here are your choices!")
 
     #Player 1's choice
@@ -23,7 +23,7 @@ def intro():
             print("Plane not listed!")
             continue
         false_input = False
-        subprocess.run('clear') # Clears the output so the users' choice isn't spoiled
+        clear() # Clears the output so the users' choice isn't spoiled
 
     #Player 2's choice
     false_input = True
@@ -34,7 +34,7 @@ def intro():
             print("Plane not listed!")
             continue
         false_input = False
-        subprocess.run('clear') # Clears the output so the users' choice isn't spoiled
+        clear() # Clears the output so the users' choice isn't spoiled
 
     return player1_choice, player2_choice
 
@@ -67,6 +67,9 @@ def guess(player1_choice, player2_choice):
             unguessed = False
 
     return winner 
+
+def clear():
+    subprocess.run('clear') # Runs clear command in a terminal
 
 #-------Main Routine-------
 if __name__ == "__main__":
