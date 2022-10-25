@@ -18,8 +18,8 @@ def intro():
     false_input = True
     while false_input:
         print(planes_print)
-        player1_choice = input("Player 1, please pick your plane: ")
-        if not player1_choice.upper() in planes:
+        player1_choice = input("Player 1, please pick your plane: ").upper()
+        if not player1_choice in planes:
             print("Plane not listed!")
             continue
         false_input = False
@@ -29,8 +29,8 @@ def intro():
     false_input = True
     while false_input:
         print(planes_print)
-        player2_choice = input("Player 2, please pick your plane: ")
-        if not player2_choice.upper() in planes:
+        player2_choice = input("Player 2, please pick your plane: ").upper()
+        if not player2_choice in planes:
             print("Plane not listed!")
             continue
         false_input = False
@@ -48,8 +48,8 @@ def guess(player1_choice, player2_choice):
         #Player 1's Turn
         if turn == 1:
             print("It's Player1's turn!")
-            player1_guess = input("Guess player2's plane: ")
-            if not player1_guess.upper() == player2_choice.upper():
+            player1_guess = input("Guess player2's plane: ").upper()
+            if not player1_guess == player2_choice:
                 print("Incorrect!")
                 turn = 2
                 continue
@@ -59,8 +59,8 @@ def guess(player1_choice, player2_choice):
         #Player 2's Turn
         elif turn == 2:
             print("It's Player2's turn!")
-            player2_guess = input("Guess player1's plane: ")
-            if not player2_guess.upper() == player1_choice.upper():
+            player2_guess = input("Guess player1's plane: ").upper()
+            if not player2_guess == player1_choice:
                 print("Incorrect!")
                 turn = 1
                 continue
