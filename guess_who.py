@@ -36,7 +36,6 @@ def intro():
         false_input = False
         subprocess.run('clear') # Clears the output so the users' choice isn't spoiled
 
-    # print(f"Success! {player1_choice} {player2_choice}") # Debugging Statement
     return player1_choice, player2_choice
 
 def guess(player1_choice, player2_choice):
