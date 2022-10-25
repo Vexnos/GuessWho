@@ -53,9 +53,8 @@ def guess(player1_choice, player2_choice):
                 print("Incorrect!")
                 turn = 2
                 continue
-            unguessed = False
             winner = "Player 1"
-            ending(winner)
+            unguessed = False
 
         #Player 2's Turn
         elif turn == 2:
@@ -65,12 +64,10 @@ def guess(player1_choice, player2_choice):
                 print("Incorrect!")
                 turn = 1
                 continue
-            unguessed = False
             winner = "Player 2"
-            ending(winner)
+            unguessed = False
 
-def ending(winner):
-    print(f"Congratulations! {winner} has won the game!")
+    return winner 
 
 #-------Main Routine-------
 if __name__ == "__main__":
@@ -81,8 +78,9 @@ if __name__ == "__main__":
               "B767",
               "B757",
               "B737",
-              "A320CEO",
-              "A320NEO",
+              "A220",
+              "A320",
+              "A321",
               "A330",
               "A340",
               "A350",
@@ -101,7 +99,9 @@ if __name__ == "__main__":
     playing = True
     while playing:
         player1_choice, player2_choice = intro()
-        guess(player1_choice, player2_choice)
+        winner = guess(player1_choice, player2_choice)
 
-    play_again = input("Play again? (y/n): ")
-    playing = play_again.lower().startswith("y")
+        print(f"Congratulations! {winner} has won the game!")
+
+        play_again = input("Play again? (y/n): ")
+        playing = play_again.lower().startswith("y")
