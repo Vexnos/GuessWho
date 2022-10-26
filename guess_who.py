@@ -63,6 +63,7 @@ def guess(player1_choice, player2_choice):
             winner = "Player 1"
             unguessed = False
 
+        # Player 2's Turn
         if turn == 2:
             player2_guess = input("Guess Player 1's plane: ")
             if player2_guess != player1_choice:
