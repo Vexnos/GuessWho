@@ -10,6 +10,7 @@ Version: 1.0.0
 import sys, subprocess
 
 #-------Functions-------
+# Intro Function
 def intro():
     clear() # Clears the output to avoid clutter
 
@@ -39,6 +40,7 @@ def intro():
 
     return player1_choice, player2_choice
 
+# Guess function
 def guess(player1_choice, player2_choice):
     turn = 1
 
@@ -107,6 +109,7 @@ if __name__ == "__main__":
 
     planes_print = ", ".join([str(plane) for plane in planes])
 
+    # Where the main program starts
     playing = True
     while playing:
         player1_choice, player2_choice = intro()
