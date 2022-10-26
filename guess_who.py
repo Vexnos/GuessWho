@@ -12,12 +12,12 @@ import sys, subprocess
 #-------Functions-------
 def intro():
     clear() # Clears the output to avoid clutter
-    print(f"Welcome to Guess Who! Here are your choices!")
 
     #Player 1's choice
     false_input = True
     while false_input:
-        print(planes_print)
+        print(f"Welcome Player 1 to Guess Who! Here are your choices:")
+        print(f"\n{bar}\n{planes_print}\n{bar}\n")
         player1_choice = input("Player 1, please pick your plane: ").upper()
         if not player1_choice in planes:
             print("Plane not listed!")
@@ -28,7 +28,8 @@ def intro():
     #Player 2's choice
     false_input = True
     while false_input:
-        print(planes_print)
+        print(f"Welcome Player 2 to Guess Who! Here are your choices:")
+        print(f"\n{bar}\n{planes_print}\n{bar}\n")
         player2_choice = input("Player 2, please pick your plane: ").upper()
         if not player2_choice in planes:
             print("Plane not listed!")
@@ -73,7 +74,8 @@ def clear():
 
 #-------Main Routine-------
 if __name__ == "__main__":
-    bar = "-" * 64
+    bar = "-" * 128
+    bar_small = "-" * 64
     planes = ["B747", 
               "B777",
               "B787",
@@ -103,7 +105,7 @@ if __name__ == "__main__":
         player1_choice, player2_choice = intro()
         winner = guess(player1_choice, player2_choice)
 
-        print(f"Congratulations! {winner} has won the game!")
+        print(f"{bar_small}\nCongratulations! {winner} has won the game!\n{bar_small}")
 
         play_again = input("Play again? (y/n): ")
         playing = play_again.lower().startswith("y")
