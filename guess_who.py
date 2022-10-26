@@ -44,33 +44,38 @@ def guess(player1_choice, player2_choice):
 
     unguessed = True
     while unguessed:
+        
+        # Who is guessing?
+        while True:
+            try:
+                turn = int(input("Who would like to guess? (1/2): "))
+                break
+            except ValueError:
+                print("Invalid input entered, please try again.")
 
-        #Player 1's Turn
+        # Player 1's Turn
         if turn == 1:
-            print("It's Player1's turn!")
-            player1_guess = input("Guess player2's plane: ").upper()
-            if not player1_guess == player2_choice:
+            player1_guess = input("Guess Player 2's plane: ")
+            if player1_guess != player2_choice:
                 print("Incorrect!")
-                turn = 2
                 continue
+            print("Correct!")
             winner = "Player 1"
             unguessed = False
 
-        #Player 2's Turn
-        elif turn == 2:
-            print("It's Player2's turn!")
-            player2_guess = input("Guess player1's plane: ").upper()
-            if not player2_guess == player1_choice:
+        if turn == 2:
+            player2_guess = input("Guess Player 1's plane: ")
+            if player2_guess != player1_choice:
                 print("Incorrect!")
-                turn = 1
                 continue
+            print("Correct!")
             winner = "Player 2"
             unguessed = False
 
     return winner 
 
 def clear():
-    subprocess.run('clear') # Runs clear command in a terminal
+    subprocess.run('clear') # Runs clear command in the Python terminal
 
 #-------Main Routine-------
 if __name__ == "__main__":
@@ -94,8 +99,9 @@ if __name__ == "__main__":
               "F35",
               "F14",
               "Concorde",
-              "A-10",
+              "A-10 Warthog",
               "DC-3",
+              "DC-10",
               "MD-80"]
 
     planes_print = ", ".join([str(plane) for plane in planes])
