@@ -1,13 +1,14 @@
 '''
 -------------------------------------------------
 Author: Daniel Lagesse
+File: Main Guess Who
 Project: Guess Who
 Date: 2022-10-25
-Version: 1.0.0
 -------------------------------------------------
 '''
 #-------Libraries-------
 import sys, subprocess, random
+from guesswho_plane_lists import *
 
 #-------Functions-------
 # Intro Function
@@ -85,63 +86,8 @@ def clear():
 #-------Main Routine-------
 bar = "-" * 128
 bar_small = "-" * 64
-planes = ["B747", 
-          "B777",
-          "B787",
-          "B767",
-          "B757",
-          "B737",
-          "A220",
-          "A320",
-          "A321",
-          "A330",
-          "A340",
-          "A350",
-          "A380",
-          "F18",
-          "F22",
-          "F35",
-          "F14",
-          "SU-57",
-          "Mig-29",
-          "Mig-25",
-          "CONCORDE",
-          "A-10 WARTHOG",
-          "DC-3",
-          "SR-71 BLACKBIRD",
-          "DC-10",
-          "MD-80"]
 
 planes_print = ", ".join([str(plane) for plane in planes])
-
-# Categories
-commercial = ["B747", 
-            "B777",
-            "B787",
-            "B767",
-            "B757",
-            "B737",
-            "A220",
-            "A320",
-            "A321",
-            "A330",
-            "A340",
-            "A350",
-            "A380",
-            "CONCORDE",
-            "DC-3",
-            "DC-10",
-            "MD-80"]
-
-military = ["F18",
-            "F22",
-            "F35",
-            "F14",
-            "A-10 WARTHOG",
-            "SU-57",
-            "Mig-29",
-            "Mig-25",
-            "SR-71 BLACKBIRD"]
 
 # Start
 if __name__ == "__main__":
