@@ -7,7 +7,7 @@ Version: 1.0.0
 -------------------------------------------------
 '''
 #-------Libraries-------
-import sys, subprocess
+import sys, subprocess, random
 
 #-------Functions-------
 # Intro Function
@@ -37,6 +37,8 @@ def intro():
             continue
         false_input = False
         clear() # Clears the output so the users' choice isn't spoiled
+
+    # player2_choice = random.choice(planes) # The AI picks its plane
 
     return player1_choice, player2_choice
 
@@ -81,35 +83,68 @@ def clear():
     subprocess.run('clear') # Runs clear command in the Python terminal
 
 #-------Main Routine-------
+bar = "-" * 128
+bar_small = "-" * 64
+planes = ["B747", 
+          "B777",
+          "B787",
+          "B767",
+          "B757",
+          "B737",
+          "A220",
+          "A320",
+          "A321",
+          "A330",
+          "A340",
+          "A350",
+          "A380",
+          "F18",
+          "F22",
+          "F35",
+          "F14",
+          "SU-57",
+          "Mig-29",
+          "Mig-25",
+          "CONCORDE",
+          "A-10 WARTHOG",
+          "DC-3",
+          "SR-71 BLACKBIRD",
+          "DC-10",
+          "MD-80"]
+
+planes_print = ", ".join([str(plane) for plane in planes])
+
+# Categories
+commercial = ["B747", 
+            "B777",
+            "B787",
+            "B767",
+            "B757",
+            "B737",
+            "A220",
+            "A320",
+            "A321",
+            "A330",
+            "A340",
+            "A350",
+            "A380",
+            "CONCORDE",
+            "DC-3",
+            "DC-10",
+            "MD-80"]
+
+military = ["F18",
+            "F22",
+            "F35",
+            "F14",
+            "A-10 WARTHOG",
+            "SU-57",
+            "Mig-29",
+            "Mig-25",
+            "SR-71 BLACKBIRD"]
+
+# Start
 if __name__ == "__main__":
-    bar = "-" * 128
-    bar_small = "-" * 64
-    planes = ["B747", 
-              "B777",
-              "B787",
-              "B767",
-              "B757",
-              "B737",
-              "A220",
-              "A320",
-              "A321",
-              "A330",
-              "A340",
-              "A350",
-              "A380",
-              "F18",
-              "F22",
-              "F35",
-              "F14",
-              "Concorde",
-              "A-10 Warthog",
-              "DC-3",
-              "DC-10",
-              "MD-80"]
-
-    planes_print = ", ".join([str(plane) for plane in planes])
-
-    # Where the main program starts
     playing = True
     while playing:
         player1_choice, player2_choice = intro()
